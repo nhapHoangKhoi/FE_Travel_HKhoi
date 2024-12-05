@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Giỏ hàng</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+   
+   <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+   <!-- Top header -->
+   <div class="top-header">
+      <div class="container">
+         <div class="inner-wrap">
+            <div class="inner-item">
+               <i class="fa-solid fa-phone"></i> 0903.727.691
+            </div>
+            <div class="inner-item">
+               <i class="fa-solid fa-envelope"></i> hoangkhoi497@gmail.com
+            </div>
+            <div class="inner-item">
+               <i class="fa-solid fa-building"></i> Số 123, đường ABC, thành phố XYZ
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- End Top header -->
+
+   <!-- Header -->
+   <header class="header">
+      <div class="container">
+         <div class="inner-wrap">
+            <button class="inner-menu-mobile">
+               <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="inner-logo">
+               <a href="index.html">
+                  <img src="assets/images/logo.svg" alt="28.TRAVEL">
+               </a>
+            </div>
+            <nav class="inner-menu">
+               <ul>
+                  <li>
+                     <a href="index.html" class="active">
+                        Trang Chủ
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        Tour Trong Nước
+                     </a>
+                     <i class="fa-solid fa-caret-down"></i>
+                     <ul>
+                        <li>
+                           <a href="#">
+                              Tour Miền Bắc
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                              Tour Miền Trung
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                              Tour Miền Nam
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                              Tour Xuyên Việt
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <a href="#">
+                        Tour Nước Ngoài
+                     </a>
+                     <i class="fa-solid fa-caret-down"></i>
+                     <ul>
+                        <li>
+                           <a href="#">
+                              Tour Châu Á
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                              Tour Châu Âu
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                              Tour Châu Mỹ
+                           </a>
+                        </li>
+                        <li>
+                           <a href="#">
+                              Tour Châu Úc
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <a href="#">
+                        Tin Tức
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#">
+                        Liên Hệ
+                     </a>
+                  </li>
+               </ul>
+            </nav>
+            <div class="inner-cart">
+               <a href="#">
+                  <img src="assets/images/icon-cart.svg" alt="Cart">
+                  <span>1</span>
+               </a>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!-- End header -->
+
+   <!-- breadcrumb -->
+   <div class="breadcrumb">
+      <div class="inner-image">
+         <img src="assets/images/banner-breadcrum-2.jpg" alt="Tour Hà Nội - Ninh Bình - Hạ Long - Yên Tử - Sapa | 6N5D">
+      </div>
+      <div class="inner-content">
+         <div class="container">
+            <h1 class="inner-title">
+               Tour Hà Nội - Ninh Bình - Hạ Long - Yên Tử - Sapa | 6N5D
+            </h1>
+            <nav class="inner-list">
+               <ul>
+                  <li>
+                     <a href="#">Trang chủ</a>
+                     <i class="fa-solid fa-angles-right"></i>
+                  </li>
+                  <li>
+                     <a href="#">Tour Trong Nước</a>
+                     <i class="fa-solid fa-angles-right"></i>
+                  </li>
+                  <li>
+                     <a href="#">Tour Miền Bắc</a>
+                     <i class="fa-solid fa-angles-right"></i>
+                  </li>
+                  <li>
+                     <a href="#">Tour Hà Nội - Ninh Bình - Hạ Long - Yên Tử - Sapa | 6N5D</a>
+                     <i class="fa-solid fa-angles-right"></i>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </div>
+   </div>
+   <!-- End breadcrumb -->
+
+   <!-- section-cart -->
+    <div class="section-cart">
+      <div class="container">
+         <div class="inner-wrap">
+            <div class="inner-head">
+               <div class="inner-title">
+                  Giỏ Hàng
+               </div>
+               <a href="#" class="inner-go-back">
+                  Quay lại mua hàng <i class="fa-solid fa-angle-right"></i>
+               </a>
+            </div>
+            <div class="inner-tour-list">
+               <div class="inner-tour-item">
+                  <div class="inner-actions">
+                     <button class="inner-delete">
+                        <i class="fa-solid fa-xmark"></i>
+                     </button>
+                     <input type="checkbox" class="inner-check">
+                  </div>
+                  <div class="inner-product">
+                     <div class="inner-image">
+                        <a href="#">
+                           <img src="assets/images/cart-1.jpg" alt="">
+                        </a>
+                     </div>
+                     <div class="inner-content">
+                        <div class="inner-title">
+                           <a href="#">
+                              Tour Châu Âu Đón Noel | 11N10D | Pháp – Thụy Sĩ – Ý
+                           </a>
+                        </div>
+                        <div class="inner-meta">
+                           <div class="inner-meta-item">
+                              Mã Tour: <b>123456789</b>
+                           </div>
+                           <div class="inner-meta-item">
+                              Ngày Khởi Hành: <b>20/10/2024</b>
+                           </div>
+                           <div class="inner-meta-item">
+                              Khởi Hành Tại: <b>Hà Nội</b>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="inner-quantity">
+                     <div class="inner-label">
+                        Số Lượng Hành Khách
+                     </div>
+                     <div class="inner-input-list">
+                        <label for="input-number-1" class="inner-input-item" input-number-element>
+                           <span class="inner-input-item-label">Người lớn:</span>
+                           <input type="number" id="input-number-1" value="1" min="0" max="30">
+                           <div class="inner-buttons">
+                              <span class="button-up"></span>
+                              <span class="button-down"></span>
+                           </div>
+                           <div class="inner-item-price">
+                              <span quantity>1</span>
+                              <span>x</span>
+                              <span class="inner-highlight">10.000.000</span>
+                           </div>
+                        </label>
+                        <label for="input-number-2" class="inner-input-item" input-number-element>
+                           <span class="inner-input-item-label">Trẻ em:</span>
+                           <input type="number" id="input-number-2" value="0" min="0" max="10">
+                           <div class="inner-buttons">
+                              <span class="button-up"></span>
+                              <span class="button-down"></span>
+                           </div>
+                           <div class="inner-item-price">
+                              <span quantity>0</span>
+                              <span>x</span>
+                              <span class="inner-highlight">7.990.000</span>
+                           </div>
+                        </label>
+                        <label for="input-number-3" class="inner-input-item" input-number-element>
+                           <span class="inner-input-item-label">Em bé:</span>
+                           <input type="number" id="input-number-3" value="0" min="0" max="10">
+                           <div class="inner-buttons">
+                              <span class="button-up"></span>
+                              <span class="button-down"></span>
+                           </div>
+                           <div class="inner-item-price">
+                              <span quantity>0</span>
+                              <span>x</span>
+                              <span class="inner-highlight">5.990.000</span>
+                           </div>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+               <div class="inner-tour-item">
+                  <div class="inner-actions">
+                     <button class="inner-delete">
+                        <i class="fa-solid fa-xmark"></i>
+                     </button>
+                     <input type="checkbox" class="inner-check">
+                  </div>
+                  <div class="inner-product">
+                     <div class="inner-image">
+                        <a href="#">
+                           <img src="assets/images/cart-1.jpg" alt="">
+                        </a>
+                     </div>
+                     <div class="inner-content">
+                        <div class="inner-title">
+                           <a href="#">
+                              Tour Châu Âu Đón Noel | 11N10D | Pháp – Thụy Sĩ – Ý
+                           </a>
+                        </div>
+                        <div class="inner-meta">
+                           <div class="inner-meta-item">
+                              Mã Tour: <b>123456789</b>
+                           </div>
+                           <div class="inner-meta-item">
+                              Ngày Khởi Hành: <b>20/10/2024</b>
+                           </div>
+                           <div class="inner-meta-item">
+                              Khởi Hành Tại: <b>Đà Nẵng</b>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="inner-quantity">
+                     <div class="inner-label">
+                        Số Lượng Hành Khách
+                     </div>
+                     <div class="inner-input-list">
+                        <label for="input-number-1" class="inner-input-item" input-number-element>
+                           <span class="inner-input-item-label">Người lớn:</span>
+                           <input type="number" id="input-number-1" value="1" min="0" max="30">
+                           <div class="inner-buttons">
+                              <span class="button-up"></span>
+                              <span class="button-down"></span>
+                           </div>
+                           <div class="inner-item-price">
+                              <span quantity>1</span>
+                              <span>x</span>
+                              <span class="inner-highlight">10.000.000</span>
+                           </div>
+                        </label>
+                        <label for="input-number-2" class="inner-input-item" input-number-element>
+                           <span class="inner-input-item-label">Trẻ em:</span>
+                           <input type="number" id="input-number-2" value="0" min="0" max="10">
+                           <div class="inner-buttons">
+                              <span class="button-up"></span>
+                              <span class="button-down"></span>
+                           </div>
+                           <div class="inner-item-price">
+                              <span quantity>0</span>
+                              <span>x</span>
+                              <span class="inner-highlight">7.990.000</span>
+                           </div>
+                        </label>
+                        <label for="input-number-3" class="inner-input-item" input-number-element>
+                           <span class="inner-input-item-label">Em bé:</span>
+                           <input type="number" id="input-number-3" value="0" min="0" max="10">
+                           <div class="inner-buttons">
+                              <span class="button-up"></span>
+                              <span class="button-down"></span>
+                           </div>
+                           <div class="inner-item-price">
+                              <span quantity>0</span>
+                              <span>x</span>
+                              <span class="inner-highlight">5.990.000</span>
+                           </div>
+                        </label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="inner-coupon">
+               <form action="">
+                  <input type="text" placeholder="Nhập mã giảm giá">
+                  <button>
+                     Dùng Mã
+                  </button>
+               </form>
+            </div>
+            <div class="inner-list-price">
+               <div class="inner-item">
+                  <div class="inner-label">Tổng tiền:</div>
+                  <div class="inner-price">
+                     <span>15.070.000</span> đ
+                  </div>
+               </div>
+               <div class="inner-item">
+                  <div class="inner-label">Giảm:</div>
+                  <div class="inner-price">
+                     <span>-5.070.000</span> đ
+                  </div>
+               </div>
+               <div class="inner-item">
+                  <div class="inner-label">Thanh toán:</div>
+                  <div class="inner-price-highlight">
+                     <span>17.070.000</span> đ
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+   <!-- End section-cart -->
+   
+   <!-- section-customer-info -->
+   <div class="section-customer-info">
+      <div class="container">
+         <div class="inner-wrap">
+            <form action="">
+               <div class="inner-info">
+                  <div class="inner-title-main">
+                     Thông Tin Khách Hàng
+                  </div>
+                  <div class="inner-inputs">
+                     <input type="text" name="fullName" placeholder="Họ và tên">
+                     <input type="text" name="phone" placeholder="Số điện thoại">
+                     <textarea name="note" placeholder="Ghi chú"></textarea>
+                  </div>
+                  <div class="inner-method">
+                     <div class="inner-title-main">
+                        Chọn phương thức thanh toán
+                     </div>
+                     <div class="inner-list">
+                        <div class="inner-item">
+                           <input type="checkbox" name="method" id="methodCash" checked="true">
+                           <label for="methodCash">
+                              Thanh toán tiền mặt khi đi tour
+                           </label>
+                        </div>
+                        <div class="inner-item">
+                           <input type="checkbox" name="method" id="methodMomo">
+                           <label for="methodMomo">
+                              Ví MoMo
+                           </label>
+                        </div>
+                        <div class="inner-item">
+                           <input type="checkbox" name="method" id="methodBank">
+                           <label for="methodBank">
+                              Chuyển khoản ngân hàng
+                           </label>
+                        </div>
+                     </div>
+                     <div class="inner-info-bank">
+                        <div class="inner-title">
+                           Thông tin chuyển khoản
+                        </div>
+                        <div class="inner-text">
+                           Ngân hàng : Vietcombank
+                        </div>
+                        <div class="inner-text">
+                           Tên tài khoản: Le Van A
+                        </div>
+                        <div class="inner-text">
+                           STK: 0123456789
+                        </div>
+                     </div>
+                     <div class="inner-button">
+                        <button class="button button-highlight">
+                           ĐẶT TOUR
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+   <!-- End section-customer-info -->
+
+   <!-- Footer -->
+   <footer class="footer">
+      <div class="container">
+         <div class="footer-top">
+            <div class="inner-wrap">
+               <div class="inner-text">
+                  Đăng ký ngay để không bỏ lỡ các chương trình của chúng tôi
+               </div>
+               <form action="" class="inner-form">
+                  <input type="email" class="inner-input" placeholder="Nhập email của bạn...">
+                  <button class="button button-highlight">
+                     Đăng Ký Ngay
+                  </button>
+               </form>
+            </div>
+         </div>
+         <div class="footer-middle">
+            <nav class="inner-links">
+               <ul>
+                  <li>
+                     <a href="#">Trang Chủ</a>
+                  </li>
+                  <li>
+                     <a href="#">Tour Trong Nước</a>
+                  </li>
+                  <li>
+                     <a href="#">Tour Nước Ngoài</a>
+                  </li>
+                  <li>
+                     <a href="#">Tin Tức</a>
+                  </li>
+                  <li>
+                     <a href="#">Liên Hệ</a>
+                  </li>
+               </ul>
+            </nav>
+            <nav class="inner-socials">
+               <ul>
+                  <li>
+                     <a href="#" target="_blank">
+                     <i class="fa-brands fa-facebook"></i>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#" target="_blank">
+                     <i class="fa-brands fa-x-twitter"></i>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#" target="_blank">
+                     <i class="fa-brands fa-instagram"></i>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#" target="_blank">
+                     <i class="fa-brands fa-youtube"></i>
+                     </a>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+         <div class="footer-bottom">
+            <div class="inner-copyright">
+               © 2024 28Tech. All rights reserved.
+            </div>
+            <div class="inner-logo">
+               <a href="index.html">
+                  <img src="assets/images/logo.svg" alt="">
+               </a>
+            </div>
+            <nav class="inner-links">
+               <ul>
+                  <li>
+                     <a href="#">Điều khoản dịch vụ</a>
+                  </li>
+                  <li>
+                     <a href="#">Chính sách bảo mật</a>
+                  </li>
+               </ul>
+            </nav>
+         </div>
+      </div>
+   </footer>
+   <!-- End footer -->
+
+   <!-- box-contact -->
+   <nav class="box-contact">
+      <ul>
+         <li>
+            <a href="#" target="_blank">
+               <i class="fa-brands fa-facebook-f"></i>
+            </a>
+         </li>
+         <li>
+            <a href="#" target="_blank">
+               <i class="fa-brands fa-instagram"></i>
+            </a>
+         </li>
+         <li>
+            <a href="#" target="_blank">
+               <i class="fa-brands fa-whatsapp"></i>
+            </a>
+         </li>
+         <li>
+            <a href="#" target="_blank">
+               <i class="fa-brands fa-youtube"></i>
+            </a>
+         </li>
+      </ul>
+   </nav>
+   <!-- End box-contact -->
+
+
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+   <script src="assets/js/script.js"></script>
+   
+</body>
+</html>
