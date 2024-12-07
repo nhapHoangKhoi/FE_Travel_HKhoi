@@ -1277,6 +1277,13 @@ img {
    border-radius: 10px;
 }
 
+/* .section-tour-discount .swiper.tour-images */
+.section-tour-discount .swiper.tour-images
+{
+   border-radius: 10px;
+}
+/* End .section-tour-discount .swiper.tour-images */
+
 
 /* .section-tour-discount .custom-swiper-button-prev */
 .section-tour-discount .custom-swiper-button-prev
@@ -2824,6 +2831,15 @@ img {
 {
    width: calc(42% - 20px);
 }
+
+
+/* .section-ten .swiper.tour-images-main */
+.section-ten .swiper.tour-images-main
+{
+   border-radius: 10px;
+}
+/* End .section-ten .swiper.tour-images-main */
+
 
 /* .section-ten .custom-swiper-button-prev */
 .section-ten .custom-swiper-button-prev
