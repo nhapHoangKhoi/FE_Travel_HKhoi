@@ -421,3 +421,41 @@ if(sectionCart)
    }
 }
 // ----- End tour list in cart
+
+
+// ----- Tour detail images swiper
+const tourMainImages = document.querySelector(".box-images .tour-images-main");
+const tourImagesSmallSlide = document.querySelector(".box-images .tour-images-small-slide");
+
+if(tourMainImages && tourImagesSmallSlide)
+{
+   const swiperSmall = new Swiper(".tour-images-small-slide", {
+      spaceBetween: 20,
+      slidesPerView: 4,
+      freeMode: true,
+      watchSlidesProgress: true,
+   });
+
+   const swiperLarge = new Swiper(".tour-images-main", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      rewind: true,
+      autoplay: {
+         // delay: 2500,
+         delay: 1500,
+         disableOnInteraction: false,
+      },
+      pagination: {
+         el: ".swiper-pagination",
+         clickable: true,
+      },
+      navigation: {
+         nextEl: ".swiper-button-next",
+         prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+         swiper: swiperSmall,
+      }
+   });
+}
+// ----- End Tour detail images swiper
