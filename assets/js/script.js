@@ -440,11 +440,11 @@ if(tourMainImages && tourImagesSmallSlide)
       slidesPerView: 1,
       spaceBetween: 30,
       rewind: true,
-      // autoplay: {
-      //    // delay: 2500,
-      //    delay: 1500,
-      //    disableOnInteraction: false,
-      // },
+      autoplay: {
+         // delay: 2500,
+         delay: 1500,
+         disableOnInteraction: false,
+      },
       pagination: {
          el: ".swiper-pagination",
          clickable: true,
