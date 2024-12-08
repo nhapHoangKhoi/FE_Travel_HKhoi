@@ -993,7 +993,7 @@ img {
    margin-bottom: 17px;
 }
 
-.section-promotion .inner-promo-content .inner-end-time .inner-time ul
+.section-promotion .inner-promo-content .inner-end-time .countdown-datetime ul
 {
    list-style-type: none;
    margin: 0;
@@ -1003,18 +1003,31 @@ img {
    gap: 17px;
 }
 
-.section-promotion .inner-promo-content .inner-end-time .inner-time ul li span
+.section-promotion .inner-promo-content .inner-end-time .countdown-datetime ul li
+{
+   display: flex;
+   background: #fff;
+   width: 70px;
+   height: 70px;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   border-radius: 10px;
+   padding: 8px 8px;
+}
+
+.section-promotion .inner-promo-content .inner-end-time .countdown-datetime ul li .countdown-value
 {
    font-size: 30px;
    font-weight: 700;
    color: var(--color-primary);
-   display: flex;
-   background: #fff;
-   width: 57px;
-   height: 57px;
-   justify-content: center;
-   align-items: center;
-   border-radius: 10px;
+}
+
+.section-promotion .inner-promo-content .inner-end-time .countdown-datetime ul li .countdown-title
+{
+   font-size: 14px;
+   font-weight: 500;
+   color: #8C8C8C;
 }
 
 .section-promotion .inner-promo-content .inner-price-info .inner-text

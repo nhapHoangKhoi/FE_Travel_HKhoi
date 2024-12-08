@@ -197,6 +197,68 @@ if(boxTourDetail)
 // ----- End tour detail
 
 
+// ----- Countdown-datetime
+const countdownElement = document.querySelector(".countdown-datetime");
+
+if(countdownElement)
+{
+   function formatNumber(number)
+   {
+      return number < 10 ? "0" + number : number;
+   }
+
+   const daysElement = countdownElement.querySelector(".countdown-value[days]");
+   const hoursElement = countdownElement.querySelector(".countdown-value[hours]");
+   const minutesElement = countdownElement.querySelector(".countdown-value[minutes]");
+   const secondsElement = countdownElement.querySelector(".countdown-value[seconds]");
+
+   // --- Real data
+   // const endValue = countdownElement.getAttribute("date-end");
+   // const endDate = new Date(`${endValue}`);
+   // --- End real data
+
+   // --- Fake creating new data every day
+   const now = new Date();
+   const year = now.getFullYear();
+   const month = now.getMonth() + 1;
+   const day = now.getDate();
+   const endDate = new Date(`${year}-${month}-${day+1}, 23:59:59`);
+   // --- End fake creating new data every day
+
+   const counter = setInterval(() => {
+      const currentTime = new Date();
+      const distance = endDate - currentTime;
+
+      const daysRemain = Math.floor( distance / (1000 * 60 * 60 * 24) );
+      const hoursRemain = Math.floor( (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) );
+      const minutesRemain = Math.floor( (distance % (1000 * 60 * 60)) / (1000 * 60) );
+      const secondsRemain = Math.floor( (distance % (1000 * 60)) / (1000) );
+
+      if(daysElement) {
+         daysElement.innerHTML = formatNumber(daysRemain);
+      }
+
+      if(hoursElement) {
+         hoursElement.innerHTML = formatNumber(hoursRemain);
+      }
+
+      if(minutesElement) {
+         minutesElement.innerHTML = formatNumber(minutesRemain);
+      }
+
+      if(secondsElement) {
+         secondsElement.innerHTML = formatNumber(secondsRemain);
+      }
+
+      if(daysRemain == 0 && hoursRemain == 0 && minutesRemain == 0 && secondsRemain == 0) {
+         clearInterval(counter);
+         return;
+      }
+   }, 1000);
+}
+// ----- End countdown-datetime
+
+
 // ----- Form search
 const formSearch = document.querySelector("form[form-search]");
 
