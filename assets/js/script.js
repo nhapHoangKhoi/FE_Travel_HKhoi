@@ -222,7 +222,7 @@ if(countdownElement)
    const year = now.getFullYear();
    const month = now.getMonth() + 1;
    const day = now.getDate();
-   const endDate = new Date(`${year}-${formatNumber(month)}-${formatNumber(day)}T01:25:00`);
+   const endDate = new Date(`${year}-${formatNumber(month)}-${formatNumber(day)}T23:59:59`);
    // --- End fake creating new data every day
 
    const counter = setInterval(() => {
