@@ -285,7 +285,7 @@ if(boxFilter)
 
 // --------------------- 3. tour-detail page --------------------- //
 
-// ----- Box tour detail
+// ----- Box tour detail - 2
 const boxTourDetail = document.querySelector(".box-tour-detail");
 
 if(boxTourDetail)
