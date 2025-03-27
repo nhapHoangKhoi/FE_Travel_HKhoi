@@ -1,3 +1,46 @@
+// --------------------- 0. Header --------------------- //
+
+// ----- Menu for mobile
+const menuMobileIcon = document.querySelector(".inner-menu-mobile-button");
+
+if(menuMobileIcon)
+{
+   const backdrop = document.querySelector(".menu-sider .inner-overlay");
+   const menuSider = document.querySelector(".menu-sider");
+
+   if(backdrop && menuSider) 
+   {
+      menuMobileIcon.addEventListener("click", () => 
+         {
+            // menuMobileIcon.classList.toggle("open");
+            backdrop.classList.toggle("open");
+            menuSider.classList.toggle("open");
+         }
+      );
+   
+      backdrop.addEventListener("click", () => 
+         {
+            // menuMobileIcon.classList.remove("open");
+            backdrop.classList.remove("open");
+            menuSider.classList.remove("open");
+         }
+      );
+
+      // Open sub menu
+      const listButtonSubMenus = menuSider.querySelectorAll("ul > li > i");
+      listButtonSubMenus.forEach((eachButton) => {
+         eachButton.addEventListener("click", () => {
+            const correspondParent = eachButton.parentNode;
+            correspondParent.classList.toggle("expand");
+         });
+      });
+   }
+}
+// ----- End menu for mobile
+
+// --------------------- 0. End header --------------------- //
+
+
 // --------------------- 1. index page --------------------- //
 
 // ----- Countdown-datetime
@@ -62,24 +105,99 @@ if(countdownElement)
 // ----- End countdown-datetime
 
 
-// ----- Form search
-const formSearch = document.querySelector("form[form-search]");
+// ----- Quantity emelement
+const elementQuantityBannerHero = document.querySelector(".banner-hero .banner-hero-area .inner-form .inner-quantity");
 
-if(formSearch)
+if(elementQuantityBannerHero)
 {
-   const inputGroup = formSearch.querySelector(".inner-input-group");
-   const inputElement = inputGroup.querySelector(".inner-input");
-   const suggestionElement = formSearch.querySelector(".inner-suggest");
+   const inputElement = elementQuantityBannerHero.querySelector(".inner-input-group .inner-input");
+   const inputIconLeft = elementQuantityBannerHero.querySelector(".inner-input-group .inner-icon");
+   const inputIconRight = elementQuantityBannerHero.querySelector(".inner-input-group .inner-down");
 
+   const quantityListElement = elementQuantityBannerHero.querySelector(".inner-quantity-list");
+
+   // Event when focusing input element, show the quantity box 
    inputElement.addEventListener("focus", () => {
-      suggestionElement.classList.add("show");
+      quantityListElement.classList.add("show");
    });
 
-   inputElement.addEventListener("blur", () => {
-      suggestionElement.classList.remove("show");
+   // Event when fully-unfocusing the element, hide the quantity box 
+   document.addEventListener("click", (event) => {
+      const theClickedElement = event.target; // print out the element that is clicked
+      // console.log(event.target); 
+
+      if(elementQuantityBannerHero.contains(theClickedElement) == false)
+      {
+         quantityListElement.classList.remove("show");
+      }
+   });
+
+   // Event when click or hold the icon, 
+   // automatically focus on the input and open the quantity box 
+   inputIconLeft.addEventListener("mousedown", (event) => {
+      event.preventDefault(); // at the beginning, prevent the input from losing focus
+      
+      inputElement.focus(); // start focusing on the input tag
+      quantityListElement.classList.add("show");
+   });
+
+   // Event when click or hold the icon, 
+   // automatically focus on the input and open the quantity box 
+   inputIconRight.addEventListener("mousedown", (event) => {
+      event.preventDefault(); // at the beginning, prevent the input from losing focus
+
+      inputElement.focus(); // start focusing on the input tag
+      quantityListElement.classList.add("show");
+   });
+
+   // Function to fill the quantity result into the <input> element
+   function updateQuantityInput()
+   {
+      const listBoxNumbers = quantityListElement.querySelectorAll(".inner-item .inner-count .inner-number");
+
+      const listNumbers = [];
+      listBoxNumbers.forEach((eachBoxNumber) => {
+         const number = parseInt(eachBoxNumber.innerHTML);
+         listNumbers.push(number);
+      });
+      
+      const strValue = `NL: ${listNumbers[0]}, TE: ${listNumbers[1]}, EB: ${listNumbers[2]}`;
+      inputElement.value = strValue;
+   }
+
+   // Event when click button up
+   const listButtonUps = quantityListElement.querySelectorAll(".inner-item .inner-count .inner-up");
+   listButtonUps.forEach((eachButton) => {
+      eachButton.addEventListener("click", () => {
+         const parentElement = eachButton.parentNode;
+         const boxNumber = parentElement.querySelector(".inner-number");
+         const number = parseInt(boxNumber.innerHTML);
+
+         const numberUpdate = number + 1;
+         boxNumber.innerHTML = numberUpdate;
+
+         updateQuantityInput(); // fill the quantity result into the <input> element
+      });
+   });
+
+   // Event when click button down
+   const listButtonDowns = quantityListElement.querySelectorAll(".inner-item .inner-count .inner-down");
+   listButtonDowns.forEach((eachButton) => {
+      eachButton.addEventListener("click", () => {
+         const parentElement = eachButton.parentNode;
+         const boxNumber = parentElement.querySelector(".inner-number");
+         const number = parseInt(boxNumber.innerHTML);
+         
+         if(number > 0) {
+            const numberUpdate = number - 1;
+            boxNumber.innerHTML = numberUpdate;
+
+            updateQuantityInput(); // fill the quantity result into the <input> element
+         }
+      });
    });
 }
-// ----- End form search
+// ----- End quantity emelement
 
 
 // ----- Tour promotion swiper
@@ -181,6 +299,57 @@ if(tourImages)
    });
 }
 // ----- End tour discount swiper
+
+
+// ----- Suggestion emelement
+const elementAddressBannerHero = document.querySelector(".banner-hero .banner-hero-area .inner-form .inner-address");
+
+if(elementAddressBannerHero)
+{
+   const inputElement = elementAddressBannerHero.querySelector(".inner-input-group .inner-input");
+   const inputIconLeft = elementAddressBannerHero.querySelector(".inner-input-group .inner-icon");
+   const inputIconRight = elementAddressBannerHero.querySelector(".inner-input-group .inner-down");
+
+   const suggestionElement = elementAddressBannerHero.querySelector(".inner-suggest");
+
+   // Event when focusing/unfocusing the input element, show or hide the suggestion box 
+   inputElement.addEventListener("focus", () => {
+      suggestionElement.classList.add("show");
+   });
+
+   inputElement.addEventListener("blur", () => {
+      suggestionElement.classList.remove("show");
+   });
+
+   // Event when click or hold the icon, 
+   // automatically focus on the input and open the suggestion box 
+   inputIconLeft.addEventListener("mousedown", (event) => {
+      event.preventDefault(); // at the beginning, prevent the input from losing focus
+      
+      inputElement.focus(); // start focusing on the input tag
+      suggestionElement.classList.add("show");
+   });
+
+   // Event when click or hold the icon, 
+   // automatically focus on the input and open the suggestion box 
+   inputIconRight.addEventListener("mousedown", (event) => {
+      event.preventDefault(); // at the beginning, prevent the input from losing focus
+
+      inputElement.focus(); // start focusing on the input tag
+      suggestionElement.classList.add("show");
+   });
+
+   // Event when clicking on an item
+   const listSuggestItems = suggestionElement.querySelectorAll(".suggest-list .inner-item");
+
+   listSuggestItems.forEach((eachItem) => {
+      eachItem.addEventListener("mousedown", () => {
+         const itemTitle = eachItem.querySelector(".inner-location").innerHTML.trim();
+         inputElement.value = itemTitle;
+      });
+   });
+}
+// ----- End sugggestion element
 
 // --------------------- 1. End index page --------------------- //
 

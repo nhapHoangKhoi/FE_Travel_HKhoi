@@ -36,7 +36,7 @@
    <header class="header">
       <div class="container">
          <div class="inner-wrap">
-            <button class="inner-menu-mobile">
+            <button class="inner-menu-mobile-button">
                <i class="fa-solid fa-bars"></i>
             </button>
             <div class="inner-logo">
@@ -44,7 +44,7 @@
                   <img src="assets/images/logo.svg" alt="28.TRAVEL">
                </a>
             </div>
-            <nav class="inner-menu">
+            <nav class="inner-menu menu-sider">
                <ul>
                   <li>
                      <a href="index.html" class="active">
@@ -118,6 +118,7 @@
                      </a>
                   </li>
                </ul>
+               <div class="inner-overlay"></div>
             </nav>
             <div class="inner-cart">
                <a href="#">
@@ -148,13 +149,13 @@
                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
                   </div>
                </div>
-               <form action="" class="inner-form" form-search>
+               <form action="" class="inner-form">
                   <div class="inner-box inner-address">
-                     <label class="inner-input-group" for="where-to-go">
+                     <div class="inner-input-group">
                         <img src="assets/images/icon-address.svg" alt="" class="inner-icon">
-                        <input type="text" placeholder="Bạn muốn đi đâu?" class="inner-input" id="where-to-go">
+                        <input type="text" placeholder="Bạn muốn đi đâu?" class="inner-input">
                         <i class="fa-solid fa-angle-down inner-down"></i>
-                     </label>
+                     </div>
                      <div class="inner-suggest">
                         <div class="suggest-title">
                            <img src="assets/images/icon-location.svg" alt="" class="inner-icon">
@@ -163,129 +164,114 @@
                         <div class="suggest-list">
                            <div class="inner-left">
                               <ul>
-                                 <li>
-                                    <a href="#">
-                                       <div class="inner-image">
-                                          <img src="assets/images/suggest-japan.png" alt="">
+                                 <li class="inner-item">
+                                    <div class="inner-image">
+                                       <img src="assets/images/suggest-japan.png" alt="">
+                                    </div>
+                                    <div class="inner-content">
+                                       <div class="inner-location">
+                                          Nhật Bản
                                        </div>
-                                       <div class="inner-content">
-                                          <div class="inner-location">
-                                             Nhật Bản
-                                          </div>
-                                          <div class="inner-slot">
-                                             50 tours
-                                          </div>
+                                       <div class="inner-slot">
+                                          50 tours
                                        </div>
+                                    </div>
                                     </a>
                                  </li>
-                                 <li>
-                                    <a href="#">
-                                       <div class="inner-image">
-                                          <img src="assets/images/suggest-singapore.png" alt="">
+                                 <li class="inner-item">
+                                    <div class="inner-image">
+                                       <img src="assets/images/suggest-singapore.png" alt="">
+                                    </div>
+                                    <div class="inner-content">
+                                       <div class="inner-location">
+                                          Singapore
                                        </div>
-                                       <div class="inner-content">
-                                          <div class="inner-location">
-                                             Singapore
-                                          </div>
-                                          <div class="inner-slot">
-                                             50 tours
-                                          </div>
+                                       <div class="inner-slot">
+                                          50 tours
                                        </div>
-                                    </a>
+                                    </div>
                                  </li>
-                                 <li>
-                                    <a href="#">
-                                       <div class="inner-image">
-                                          <img src="assets/images/suggest-thailand.png" alt="">
+                                 <li class="inner-item">
+                                    <div class="inner-image">
+                                       <img src="assets/images/suggest-thailand.png" alt="">
+                                    </div>
+                                    <div class="inner-content">
+                                       <div class="inner-location">
+                                          Thái Lan
                                        </div>
-                                       <div class="inner-content">
-                                          <div class="inner-location">
-                                             Thái Lan
-                                          </div>
-                                          <div class="inner-slot">
-                                             50 tours
-                                          </div>
+                                       <div class="inner-slot">
+                                          50 tours
                                        </div>
-                                    </a>
+                                    </div>
                                  </li>
-                                 <li>
-                                    <a href="#">
-                                       <div class="inner-image">
-                                          <img src="assets/images/suggest-bali.png" alt="">
+                                 <li class="inner-item">
+                                    <div class="inner-image">
+                                       <img src="assets/images/suggest-bali.png" alt="">
+                                    </div>
+                                    <div class="inner-content">
+                                       <div class="inner-location">
+                                          Bali
                                        </div>
-                                       <div class="inner-content">
-                                          <div class="inner-location">
-                                             Bali
-                                          </div>
-                                          <div class="inner-slot">
-                                             50 tours
-                                          </div>
+                                       <div class="inner-slot">
+                                          50 tours
                                        </div>
-                                    </a>
+                                    </div>
                                  </li>
                               </ul>
                            </div>
                            <div class="inner-right">
                               <ul>
-                                 <li>
-                                    <a href="#">
-                                       <div class="inner-image">
-                                          <img src="assets/images/suggest-phu-quoc.png" alt="">
+                                 <li class="inner-item">
+                                    <div class="inner-image">
+                                       <img src="assets/images/suggest-phu-quoc.png" alt="">
+                                    </div>
+                                    <div class="inner-content">
+                                       <div class="inner-location">
+                                          Phú Quốc
                                        </div>
-                                       <div class="inner-content">
-                                          <div class="inner-location">
-                                             Phú Quốc
-                                          </div>
-                                          <div class="inner-slot">
-                                             50 tours
-                                          </div>
+                                       <div class="inner-slot">
+                                          50 tours
                                        </div>
-                                    </a>
+                                    </div>
                                  </li>
-                                 <li>
-                                    <a href="#">
-                                       <div class="inner-image">
-                                          <img src="assets/images/suggest-ha-noi.png" alt="">
+                                 <li class="inner-item">
+                                    <div class="inner-image">
+                                       <img src="assets/images/suggest-ha-noi.png" alt="">
+                                    </div>
+                                    <div class="inner-content">
+                                       <div class="inner-location">
+                                          Hà Nội
                                        </div>
-                                       <div class="inner-content">
-                                          <div class="inner-location">
-                                             Hà Nội
-                                          </div>
-                                          <div class="inner-slot">
-                                             50 tours
-                                          </div>
+                                       <div class="inner-slot">
+                                          50 tours
                                        </div>
-                                    </a>
+                                    </div>
                                  </li>
-                                 <li>
-                                    <a href="#">
-                                       <div class="inner-image">
-                                          <img src="assets/images/suggest-sapa.png" alt="">
+                                 <li class="inner-item">
+                                    <div class="inner-image">
+                                       <img src="assets/images/suggest-sapa.png" alt="">
+                                    </div>
+                                    <div class="inner-content">
+                                       <div class="inner-location">
+                                          Sapa
                                        </div>
-                                       <div class="inner-content">
-                                          <div class="inner-location">
-                                             Sapa
-                                          </div>
-                                          <div class="inner-slot">
-                                             50 tours
-                                          </div>
+                                       <div class="inner-slot">
+                                          50 tours
                                        </div>
-                                    </a>
+                                    </div>
                                  </li>
-                                 <li>
-                                    <a href="#">
-                                       <div class="inner-image">
-                                          <img src="assets/images/suggest-nha-trang.png" alt="">
+                                 <li class="inner-item">
+                                    <div class="inner-image">
+                                       <img src="assets/images/suggest-nha-trang.png" alt="">
+                                    </div>
+                                    <div class="inner-content">
+                                       <div class="inner-location">
+                                          Nha Trang
                                        </div>
-                                       <div class="inner-content">
-                                          <div class="inner-location">
-                                             Nha Trang
-                                          </div>
-                                          <div class="inner-slot">
-                                             50 tours
-                                          </div>
+                                       <div class="inner-slot">
+                                          50 tours
                                        </div>
-                                    </a>
+                                    </div>
                                  </li>
                               </ul>
                            </div>
@@ -295,9 +281,37 @@
                   <div class="inner-box inner-quantity">
                      <div class="inner-input-group">
                         <img src="assets/images/icon-user.svg" alt="" class="inner-icon">
-                        <input type="text" placeholder="Số lượng" class="inner-input">
+                        <input type="text" placeholder="Số lượng" class="inner-input" readonly>
                         <i class="fa-solid fa-angle-down inner-down"></i>
                      </div>
+                     <div class="inner-quantity-list">
+                        <div class="inner-item">
+                           <div class="inner-label">
+                              Người lớn
+                           </div>
+                           <div class="inner-count">
+                              <span class="inner-down">-</span>
+                              <span class="inner-number">1</span>
+                              <span class="inner-up">+</span>
+                           </div>
+                        </div>
+                        <div class="inner-item">
+                           <div class="inner-label">Trẻ em</div>
+                           <div class="inner-count">
+                              <span class="inner-down">-</span>
+                              <span class="inner-number">0</span>
+                              <span class="inner-up">+</span>
+                           </div>
+                        </div>
+                        <div class="inner-item">
+                           <div class="inner-label">Em bé</div>
+                           <div class="inner-count">
+                              <span class="inner-down">-</span>
+                              <span class="inner-number">0</span>
+                              <span class="inner-up">+</span>
+                           </div>
+                        </div>
+                     </div>          
                   </div>
                   <div class="inner-box inner-calendar">
                      <div class="inner-input-group">
