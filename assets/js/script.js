@@ -5,14 +5,17 @@ const menuMobileIcon = document.querySelector(".inner-menu-mobile-button");
 
 if(menuMobileIcon)
 {
+   const menuMobileCloseIcon = document.querySelector(".inner-menu-mobile-button-cancel");
    const backdrop = document.querySelector(".menu-sider .inner-overlay");
    const menuSider = document.querySelector(".menu-sider");
 
-   if(backdrop && menuSider) 
+   if(menuMobileCloseIcon && backdrop && menuSider) 
    {
+      const listButtonSubMenus = menuSider.querySelectorAll("ul > li > i");
+      
       menuMobileIcon.addEventListener("click", () => 
          {
-            // menuMobileIcon.classList.toggle("open");
+            menuMobileCloseIcon.classList.add("open");
             backdrop.classList.toggle("open");
             menuSider.classList.toggle("open");
          }
@@ -20,18 +23,37 @@ if(menuMobileIcon)
    
       backdrop.addEventListener("click", () => 
          {
-            // menuMobileIcon.classList.remove("open");
+            menuMobileCloseIcon.classList.remove("open");
             backdrop.classList.remove("open");
             menuSider.classList.remove("open");
+
+            // also automatically close sub menu
+            listButtonSubMenus.forEach((eachButton) => {
+               const parentElement = eachButton.parentNode;
+               parentElement.classList.remove("expand");
+            });
          }
       );
 
-      // Open sub menu
-      const listButtonSubMenus = menuSider.querySelectorAll("ul > li > i");
+      menuMobileCloseIcon.addEventListener("click", () => 
+         {
+            menuMobileCloseIcon.classList.remove("open");
+            backdrop.classList.remove("open");
+            menuSider.classList.remove("open");
+
+            // also automatically close sub menu
+            listButtonSubMenus.forEach((eachButton) => {
+               const parentElement = eachButton.parentNode;
+               parentElement.classList.remove("expand");
+            });
+         }
+      );
+
+      // Event when click a menu, it will open the sub menu      
       listButtonSubMenus.forEach((eachButton) => {
          eachButton.addEventListener("click", () => {
-            const correspondParent = eachButton.parentNode;
-            correspondParent.classList.toggle("expand");
+            const parentElement = eachButton.parentNode;
+            parentElement.classList.toggle("expand");
          });
       });
    }
