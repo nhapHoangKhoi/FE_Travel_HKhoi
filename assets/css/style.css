@@ -956,7 +956,7 @@ img {
 {
    display: grid;
    grid-template-columns: 1fr 1fr;
-   margin-top: 22px;
+   /* margin-top: 22px; */
 
    overflow-y: auto;
    max-height: 350px;
@@ -967,6 +967,8 @@ img {
    list-style-type: none;
    margin: 0;
    padding: 0;
+
+   padding-top: 22px;
 }
 
 .banner-hero .banner-hero-area .inner-form .inner-suggest .suggest-list ul li
@@ -977,6 +979,16 @@ img {
    align-items: center;
    gap: 17px;
    cursor: pointer;
+
+   border-radius: 10px;
+   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.banner-hero .banner-hero-area .inner-form .inner-suggest .suggest-list ul li:hover
+{
+   transform: translateY(-5px);
+   background-color: rgba(0, 0, 0, 0.03);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 .banner-hero .banner-hero-area .inner-form .inner-suggest .suggest-list ul li:last-child
