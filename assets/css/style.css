@@ -958,7 +958,7 @@ img {
    grid-template-columns: 1fr 1fr;
    margin-top: 22px;
 
-   overflow-y: scroll;
+   overflow-y: auto;
    max-height: 350px;
 }
 
