@@ -278,13 +278,13 @@ if(tourPromotions)
 
 
 // ----- Swiper tour discount 
-const tourImages = document.querySelector(".tour-images");
+const tourImages = document.querySelector(".swiper-tour-images");
 
 if(tourImages)
 {
-   const swiper = new Swiper(".tour-images", {
+   const swiper = new Swiper(".swiper-tour-images", {
       slidesPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 20,
       rewind: true,
       autoplay: {
          // delay: 2500,
@@ -307,14 +307,19 @@ if(tourImages)
          },
          // when window width is >= 768px
          768: {
+            slidesPerView: 2,
+            spaceBetween: 20
+         },
+         // when window width is >= 992px
+         992: {
             slidesPerView: 3,
             spaceBetween: 20
          },
-         // // when window width is >= 1200px
-         // 1200: {
-         //    slidesPerView: 3,
-         //    spaceBetween: 20,
-         // },
+         // when window width is >= 1200px
+         1200: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+         },
       }
    });
 }

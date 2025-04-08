@@ -1483,12 +1483,17 @@ img {
 } */
 /******* End dung swiper nen ko dung cai nay ********/
 
-.section-tour-discount .inner-wrap
+.section-tour-discount
 {
    margin-top: 30px;
 }
 
-.section-tour-discount .inner-wrap .inner-image
+.section-tour-discount .box-head
+{
+   margin-bottom: 30px;
+}
+
+.section-tour-discount .inner-image
 {
    width: 100%;
    aspect-ratio: 4 / 3;
@@ -1496,14 +1501,14 @@ img {
    border-radius: 10px;
 }
 
-.section-tour-discount .inner-wrap .inner-image a
+.section-tour-discount .inner-image a
 {
    display: block;
    width: 100%;
    height: 100%;
 }
 
-.section-tour-discount .inner-wrap .inner-image a img
+.section-tour-discount .inner-image a img
 {
    width: 100%;
    height: 100%;
@@ -1511,12 +1516,12 @@ img {
    border-radius: 10px;
 }
 
-/* .section-tour-discount .swiper.tour-images */
-.section-tour-discount .swiper.tour-images
+/* .section-tour-discount .swiper.swiper-tour-images */
+.section-tour-discount .swiper.swiper-tour-images
 {
    border-radius: 10px;
 }
-/* End .section-tour-discount .swiper.tour-images */
+/* End .section-tour-discount .swiper.swiper-tour-images */
 
 
 /* .section-tour-discount .custom-swiper-button-prev */
@@ -1608,6 +1613,11 @@ img {
 /* smaller than 576 */
 @media (max-width: 575.98px)
 {
+   .section-tour-discount .swiper-pagination
+   {
+      margin-top: 20px;
+   }
+
    .section-tour-discount .swiper-pagination .swiper-pagination-bullet
    {
       width: 10px;
