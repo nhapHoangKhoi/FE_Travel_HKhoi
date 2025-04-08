@@ -1,3 +1,8 @@
+// --------------------- Other libraries initilization --------------------- //
+AOS.init();
+// --------------------- End other libraries initilization --------------------- //
+
+
 // --------------------- 0. Header --------------------- //
 
 // ----- Menu for mobile

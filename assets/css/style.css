@@ -1689,13 +1689,10 @@ img {
 }
 /* End cach 3: dung display grid */
 
-.tour-domestic .button
+.tour-domestic .inner-button
 {
    margin-top: 30px;
-   position: relative;
-   left: 50%;
-   top: 0;
-   transform: translateX(-50%);
+   text-align: center;
 }
 
 /* smaller than 1200 */
@@ -1835,13 +1832,10 @@ img {
    margin-top: 30px;
 }
 
-.tour-foreign .button
+.tour-foreign .inner-button
 {
    margin-top: 30px;
-   position: relative;
-   left: 50%;
-   top: 0;
-   transform: translateX(-50%);
+   text-align: center;
 }
 
 /* smaller than 1200 */
