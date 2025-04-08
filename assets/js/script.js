@@ -98,9 +98,9 @@ if(countdownElement)
       const distance = endDate - currentTime; // miliseconds
 
       const daysRemain = Math.floor( distance / (1000 * 60 * 60 * 24) );
-      const hoursRemain = Math.floor( (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) );
-      const minutesRemain = Math.floor( (distance % (1000 * 60 * 60)) / (1000 * 60) );
-      const secondsRemain = Math.floor( (distance % (1000 * 60)) / (1000) );
+      const hoursRemain = Math.floor( (distance / (1000 * 60 * 60)) % 24 );
+      const minutesRemain = Math.floor( (distance / (1000 * 60)) % 60 );
+      const secondsRemain = Math.floor( (distance / (1000)) % 60 );
       
       if(distance > 0) {
          daysElement.innerHTML = formatNumber(daysRemain);
