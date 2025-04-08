@@ -608,6 +608,7 @@ const boxTourInfo = document.querySelector(".box-tour-info");
 
 if(boxTourInfo)
 {
+   // --- ShowMore/ShowLess button
    const buttonReadMore = boxTourInfo.querySelector(".inner-read-more button");
 
    buttonReadMore.addEventListener("click", () => {
@@ -620,6 +621,11 @@ if(boxTourInfo)
          buttonReadMore.innerHTML = "Ẩn bớt"; // button "Show less"
       }
    });
+   // --- End showMore/ShowLess button
+
+   // --- Zoom images in box tour info
+   new Viewer(boxTourInfo);
+   // --- End zoom images in box tour info
 }
 // ----- End box tour info
 
@@ -660,6 +666,26 @@ if(tourMainImages && tourImagesSmallSlide)
    });
 }
 // ----- End Tour detail images swiper
+
+
+// ----- Zoom box images main
+const boxTourMainImages = document.querySelector(".box-images .inner-images-main");
+
+if(boxTourMainImages)
+{
+   new Viewer(boxTourMainImages);
+}
+// ----- End zoom box images main
+
+
+// ----- Zoom box tour schedule
+const boxTourSchedule = document.querySelector(".box-tour-schedule");
+
+if(boxTourSchedule)
+{
+   new Viewer(boxTourSchedule);
+}
+// ----- End zoom box tour schedule
 
 // --------------------- 3. End tour-detail page --------------------- //
 
