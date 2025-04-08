@@ -2777,7 +2777,7 @@ img {
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(0.5);
+      transform: translate(-50%, -50%) scale(0.2);
       
       z-index: 1200;
       opacity: 0;
@@ -3668,6 +3668,17 @@ img {
    font-weight: 600;
    color: var(--color-primary);
    margin-bottom: 15px;
+}
+
+.box-tour-info .inner-content
+{
+   height: 500px;
+   overflow: hidden;
+}
+
+.box-tour-info.expand .inner-content
+{
+   height: auto;
 }
 
 .box-tour-info .inner-content p

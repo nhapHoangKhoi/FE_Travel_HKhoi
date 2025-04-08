@@ -593,6 +593,27 @@ if(boxTourDetail)
 // ----- End tour detail
 
 
+// ----- Box tour info
+const boxTourInfo = document.querySelector(".box-tour-info");
+
+if(boxTourInfo)
+{
+   const buttonReadMore = boxTourInfo.querySelector(".inner-read-more button");
+
+   buttonReadMore.addEventListener("click", () => {
+      if(boxTourInfo.classList.contains("expand")) {
+         boxTourInfo.classList.remove("expand");
+         buttonReadMore.innerHTML = "Xem tất cả"; // button "Show all"
+      }
+      else {
+         boxTourInfo.classList.add("expand");
+         buttonReadMore.innerHTML = "Ẩn bớt"; // button "Show less"
+      }
+   });
+}
+// ----- End box tour info
+
+
 // ----- Tour detail images swiper
 const tourMainImages = document.querySelector(".box-images .tour-images-main");
 const tourImagesSmallSlide = document.querySelector(".box-images .tour-images-small-slide");
