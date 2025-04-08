@@ -1312,7 +1312,7 @@ img {
    right: 100%;
    transform: translateY(-50%);
 
-   aspect-ratio: 1/2;
+   width: 19px; /* aspect-ratio: 1/2 */
    height: 38px;
    background-color: #D8D8D8CC;
    border-radius: 38px 0 0 38px;
@@ -1340,7 +1340,7 @@ img {
    left: 100%;
    transform: translateY(-50%);
 
-   width: 19px;
+   width: 19px; /* aspect-ratio: 1/2 */
    height: 38px;
    background-color: #D8D8D8CC;
    border-radius: 0 38px 38px 0;
