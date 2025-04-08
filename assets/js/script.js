@@ -235,7 +235,7 @@ if(tourPromotions)
 
    const swiper = new Swiper(".swiper-tour-promotions", {
       slidesPerView: 1,
-      spaceBetween: 0,
+      spaceBetween: 20,
       rewind: true,
       autoplay: {
          // delay: 2500,
@@ -254,7 +254,7 @@ if(tourPromotions)
          // when window width is >= 576px
          576: {
             slidesPerView: 1,
-            spaceBetween: 0
+            spaceBetween: 20
          },
          // when window width is >= 992px
          992: {
