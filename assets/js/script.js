@@ -82,7 +82,7 @@ if(countdownElement)
 
    // --- Real data
    // const endValue = countdownElement.getAttribute("date-end");
-   // const endDate = new Date(`${endValue}`);
+   // const endDate = new Date(`${endValue}`); // object Date
    // --- End real data
 
    // --- Fake creating new data every day
@@ -95,32 +95,25 @@ if(countdownElement)
 
    const counter = setInterval(() => {
       const currentTime = new Date();
-      const distance = endDate - currentTime;
+      const distance = endDate - currentTime; // miliseconds
 
       const daysRemain = Math.floor( distance / (1000 * 60 * 60 * 24) );
       const hoursRemain = Math.floor( (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) );
       const minutesRemain = Math.floor( (distance % (1000 * 60 * 60)) / (1000 * 60) );
       const secondsRemain = Math.floor( (distance % (1000 * 60)) / (1000) );
-
-      if(daysElement) {
+      
+      if(distance > 0) {
          daysElement.innerHTML = formatNumber(daysRemain);
-      }
-
-      if(hoursElement) {
          hoursElement.innerHTML = formatNumber(hoursRemain);
-      }
-
-      if(minutesElement) {
          minutesElement.innerHTML = formatNumber(minutesRemain);
-      }
-
-      if(secondsElement) {
          secondsElement.innerHTML = formatNumber(secondsRemain);
       }
-
-      if(daysRemain == 0 && hoursRemain == 0 && minutesRemain == 0 && secondsRemain == 0) {
+      else {
+         daysElement.innerHTML = "00";
+         hoursElement.innerHTML = "00";
+         minutesElement.innerHTML = "00";
+         secondsElement.innerHTML = "00";
          clearInterval(counter);
-         return;
       }
    }, 1000);
 }
@@ -222,8 +215,8 @@ if(elementQuantityBannerHero)
 // ----- End quantity emelement
 
 
-// ----- Tour promotion swiper
-const tourPromotions = document.querySelector(".tour-promotions");
+// ----- Swiper tour promotion 
+const tourPromotions = document.querySelector(".swiper-tour-promotions");
 
 if(tourPromotions)
 {
@@ -240,7 +233,7 @@ if(tourPromotions)
       swiperButtonNext.click();
    });
 
-   const swiper = new Swiper(".tour-promotions", {
+   const swiper = new Swiper(".swiper-tour-promotions", {
       slidesPerView: 1,
       spaceBetween: 0,
       rewind: true,
@@ -276,10 +269,10 @@ if(tourPromotions)
       }
    });
 }
-// ----- End tour promotion swiper
+// ----- End swiper tour promotion
 
 
-// ----- Tour discount swiper
+// ----- Swiper tour discount 
 const tourImages = document.querySelector(".tour-images");
 
 if(tourImages)
@@ -320,7 +313,7 @@ if(tourImages)
       }
    });
 }
-// ----- End tour discount swiper
+// ----- End swiper tour discount
 
 
 // ----- Suggestion emelement
