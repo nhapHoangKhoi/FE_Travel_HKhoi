@@ -723,7 +723,7 @@ img {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
+      width: 100vw;
       height: 100vh;
       z-index: 1100;
    
@@ -2744,9 +2744,75 @@ img {
 /* smaller than 992 */
 @media (max-width: 991.98px)
 {
-   .section-nine .inner-left
+   /* .section-nine .inner-left
    {
       display: none;
+   } */
+
+   .section-nine .inner-left
+   {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      opacity: 0;
+      visibility: hidden;
+
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      transition: all 0.25s ease-in-out;  
+   }
+
+   .section-nine .inner-left.open
+   {
+      opacity: 1;
+      visibility: visible;
+   }
+
+   .section-nine .inner-left .box-filter
+   {
+      width: 280px;
+
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.5);
+      
+      z-index: 1200;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease-in-out;  
+   }
+
+   .section-nine .inner-left.open .box-filter
+   {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+   }
+
+   .section-nine .inner-left .inner-overlay
+   {
+      background-color: rgba(0, 0, 0, 0.5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1100;
+   
+      opacity: 0;
+      visibility: hidden;
+      cursor: pointer;
+   
+      transition: all 0.25s ease-in-out;
+   }
+
+   .section-nine .inner-left.open .inner-overlay
+   {
+      opacity: 1;
+      visibility: visible;
    }
 
    .section-nine .inner-right

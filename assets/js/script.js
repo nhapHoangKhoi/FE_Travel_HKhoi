@@ -464,6 +464,25 @@ if(boxFilter)
 }
 // ----- End box filter
 
+
+// ----- Button filter mobile
+const buttonFilterMobile = document.querySelector(".section-nine .inner-filter-mobile");
+
+if(buttonFilterMobile)
+{
+   const boxFilterLeft = document.querySelector(".section-nine .inner-left");
+   const overlay = document.querySelector(".section-nine .inner-left .inner-overlay");
+
+   buttonFilterMobile.addEventListener("click", () => {
+      boxFilterLeft.classList.add("open");
+   });
+
+   overlay.addEventListener("click", () => {
+      boxFilterLeft.classList.remove("open");
+   });
+}
+// ----- End button filter mobile
+
 // --------------------- 2. End tour-list page --------------------- //
 
 
