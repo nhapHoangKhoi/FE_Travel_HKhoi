@@ -910,5 +910,4 @@ if(orderForm)
 }
 // ----- End validate order form
 
-
 // --------------------- 4. End cart page --------------------- //
