@@ -4151,6 +4151,17 @@ img {
    width: 50%;
 
    display: flex;
+
+   position: relative;
+}
+
+.section-cart .inner-coupon form .just-validate-error-label 
+{
+   position: absolute;
+   top: 104%;
+   left: 0;
+   font-size: 12px;
+   margin-top: 4px;
 }
 
 .section-cart .inner-coupon form input

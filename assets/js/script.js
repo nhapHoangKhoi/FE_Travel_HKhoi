@@ -823,4 +823,26 @@ if(sectionCart)
 }
 // ----- End tour list in cart
 
+// ----- Validate coupon form
+const couponForm = document.querySelector("#coupon-form");
+
+if(couponForm) 
+{
+   const validator = new JustValidate('#coupon-form');
+
+   validator
+      .addField('#coupon-input', [
+         {
+            rule: 'required',
+            errorMessage: 'Vui lòng nhập mã coupon!'
+         }
+      ])
+      .onSuccess((event) => {
+         const coupon = event.target.myCoupon.value;
+         console.log(coupon);
+      })
+}
+
+// ----- End validate coupon form
+
 // --------------------- 4. End cart page --------------------- //
