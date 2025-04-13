@@ -845,4 +845,70 @@ if(couponForm)
 
 // ----- End validate coupon form
 
+// ----- Validate order form
+const orderForm = document.querySelector("#order-form");
+
+if(orderForm) 
+{
+   const validator = new JustValidate('#order-form');
+
+   validator
+      .addField('#full-name-input', [
+         {
+            rule: 'required',
+            errorMessage: 'Vui lòng nhập họ tên!'
+         },
+         {
+            rule: 'minLength',
+            value: 5,
+            errorMessage: 'Họ tên phải có ít nhất 5 ký tự!'
+         },
+         {
+            rule: 'maxLength',
+            value: 50,
+            errorMessage: 'Họ tên không được vượt quá 50 ký tự!'
+         }    
+      ])
+      .addField('#phone-input', [
+         {
+            rule: 'required',
+            errorMessage: 'Vui lòng nhập số điện thoại!'
+         },
+         {
+            rule: 'customRegexp',
+            value: /(84|0[3|5|7|8|9])+([0-9]{8})\b/g, // Vietnam phone format
+            errorMessage: 'Số điện thoại không đúng định dạng!'
+         }
+      ])   
+      .onSuccess((event) => {
+         const fullName = event.target.fullName.value;
+         const phone = event.target.phone.value;
+         const note = event.target.note.value;
+         const method = event.target.method.value;
+         
+         console.log(fullName);
+         console.log(phone);
+         console.log(note);
+         console.log(method);
+      })
+
+   // --- List input pay method
+   const listInputMethods = orderForm.querySelectorAll(`input[name="method"]`);
+   const elementInfoBank = orderForm.querySelector(".inner-info-bank");
+   
+   listInputMethods.forEach(inputMethod => {
+      inputMethod.addEventListener("change", () => {
+         if(inputMethod.value == "byBank") {
+            elementInfoBank.classList.add("active");
+         } 
+         else {
+            elementInfoBank.classList.remove("active");
+         }
+      });
+   });
+   // --- End list input pay method
+}
+// ----- End validate order form
+
+
 // --------------------- 4. End cart page --------------------- //

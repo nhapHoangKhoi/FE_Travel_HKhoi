@@ -2224,7 +2224,7 @@ img {
    left: 14px;
    top: 104%;
    font-size: 12px;
-   color: #ffa1a1 !important;
+   color: #EF3826 !important;
    margin-top: 4px;
 }
  
@@ -2247,7 +2247,7 @@ img {
 
 .footer-top .inner-form input.just-validate-error-field 
 {
-   border-color: red;
+   border-color: #EF3826;
 }
 
 .footer-top .inner-form input.just-validate-success-field 
@@ -4162,6 +4162,7 @@ img {
    left: 0;
    font-size: 12px;
    margin-top: 4px;
+   color: #EF3826 !important;
 }
 
 .section-cart .inner-coupon form input
@@ -4387,8 +4388,32 @@ img {
 {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
-   gap: 15px 20px;
-   margin-bottom: 15px;
+   gap: 25px 20px;
+   margin-bottom: 25px;
+}
+
+.section-customer-info .inner-info .inner-inputs .inner-input 
+{
+   position: relative;
+}
+
+.section-customer-info .inner-info .inner-inputs .inner-input .just-validate-error-label 
+{
+   position: absolute;
+   top: 104%;
+   left: 0;
+   font-size: 12px;
+   color: #EF3826 !important;
+}
+
+.section-customer-info .inner-info .inner-inputs .inner-input .just-validate-error-field 
+{
+   border-color: #EF3826;
+}
+
+.section-customer-info .inner-info .inner-inputs .inner-input .just-validate-success-field 
+{
+   border-color: #00B69B;
 }
 
 .section-customer-info .inner-info input,
@@ -4455,6 +4480,12 @@ img {
    border-radius: 4.25px;
    padding: 15px;
    margin-top: 20px;
+   display: none;
+}
+
+.section-customer-info .inner-method .inner-info-bank.active
+{
+   display: block;
 }
 
 .section-customer-info .inner-method .inner-info-bank .inner-title
