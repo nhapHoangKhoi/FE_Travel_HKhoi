@@ -2214,8 +2214,20 @@ img {
    border-radius: 14px;
    padding: 12px 12px;
    gap: 12px;
+
+   position: relative;
 }
 
+.footer-top .inner-form .just-validate-error-label 
+{
+   position: absolute;
+   left: 14px;
+   top: 104%;
+   font-size: 12px;
+   color: #ffa1a1 !important;
+   margin-top: 4px;
+}
+ 
 .footer-top .inner-form .inner-input
 {
    flex: 1;
@@ -2231,6 +2243,17 @@ img {
    font-size: 14px;
    font-weight: 500;
    color: #99A2A5;
+}
+
+.footer-top .inner-form input.just-validate-error-field 
+{
+   border-color: red;
+}
+
+.footer-top .inner-form input.just-validate-success-field 
+{
+   border-color: #00B69B;
+   color: #00B69B;
 }
 
 .footer-top .inner-form .button

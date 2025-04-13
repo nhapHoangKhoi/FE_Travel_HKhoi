@@ -376,6 +376,33 @@ if(elementAddressBannerHero)
 }
 // ----- End sugggestion element
 
+
+// ----- Validate email form
+const emailForm = document.querySelector("#email-form");
+
+if(emailForm) 
+{
+   const validator = new JustValidate('#email-form');
+
+   validator
+      .addField('#email-input', [
+         {
+            rule: 'required',
+            errorMessage: 'Vui lòng nhập email của bạn!'
+         },
+         {
+            rule: 'email',
+            errorMessage: 'Email không đúng định dạng!'
+         }
+      ])
+      .onSuccess((event) => {
+         const email = event.target.myEmail.value;
+         console.log(email);
+      })
+}
+
+// ----- End validate email form
+
 // --------------------- 1. End index page --------------------- //
 
 
