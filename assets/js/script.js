@@ -438,31 +438,67 @@ if(boxFilter)
             }
             // --- End can only check for the very first time render
       
-            buttonUp.addEventListener("click", () => {
+            // --- Cutom arrow
+            let interval;
+            let isHeld = false;
+
+            function increment() {
                let currentValue = parseInt(inputNumberElement.value);
                currentValue = currentValue + 1;
                inputNumberElement.value = Math.min(maxValue, currentValue); // ensure the new value does not exceed max value
-               
-               buttonDown.classList.remove("disabled");
-      
+
                if(inputNumberElement.value >= maxValue)
                {
                   buttonUp.classList.add("disabled");
                }
-            });
-      
-            buttonDown.addEventListener("click", () => {
+            }
+
+            function decrement() {
                let currentValue = parseInt(inputNumberElement.value);
                currentValue = currentValue - 1;
                inputNumberElement.value = Math.max(minValue, currentValue); // ensure the new value does not go below min value
-      
-               buttonUp.classList.remove("disabled");
-      
+
                if(inputNumberElement.value <= minValue)
                {
                   buttonDown.classList.add("disabled");
                }
+            }
+
+            function clearHold() {
+               isHeld = false;
+               clearInterval(interval);
+            }
+
+            buttonUp.addEventListener("mousedown", () => {
+               isHeld = true;
+               increment();  
+
+               interval = setInterval(() => {
+                  if(isHeld) {
+                     increment();
+                  }
+               }, 125);
+
+               buttonDown.classList.remove("disabled");
             });
+            buttonUp.addEventListener("mouseup", clearHold);
+            buttonUp.addEventListener("mouseleave", clearHold);
+      
+            buttonDown.addEventListener("mousedown", () => {
+               isHeld = true;
+               decrement();  
+
+               interval = setInterval(() => {
+                  if(isHeld) {
+                     decrement();
+                  }
+               }, 125);
+
+               buttonUp.classList.remove("disabled");
+            });
+            buttonDown.addEventListener("mouseup", clearHold);
+            buttonDown.addEventListener("mouseleave", clearHold);
+            // --- End cutom arrow
       
             // --- when user type directly in the <input> instead of clicking buttons
             inputNumberElement.addEventListener("input", () => {
@@ -558,35 +594,71 @@ if(boxTourDetail)
             }
             // --- End can only check for the very first time render
       
-            buttonUp.addEventListener("click", () => {
+            // --- Cutom arrow
+            let interval;
+            let isHeld = false;
+
+            function increment() {
                let currentValue = parseInt(inputNumberElement.value);
                currentValue = currentValue + 1;
                inputNumberElement.value = Math.min(maxValue, currentValue); // ensure the new value does not exceed max value
-               
-               buttonDown.classList.remove("disabled");
-      
+
                if(inputNumberElement.value >= maxValue)
                {
                   buttonUp.classList.add("disabled");
                }
 
                spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
-            });
-      
-            buttonDown.addEventListener("click", () => {
+            }
+
+            function decrement() {
                let currentValue = parseInt(inputNumberElement.value);
                currentValue = currentValue - 1;
                inputNumberElement.value = Math.max(minValue, currentValue); // ensure the new value does not go below min value
-      
-               buttonUp.classList.remove("disabled");
-      
+
                if(inputNumberElement.value <= minValue)
                {
                   buttonDown.classList.add("disabled");
                }
 
                spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+            }
+
+            function clearHold() {
+               isHeld = false;
+               clearInterval(interval);
+            }
+      
+            buttonUp.addEventListener("mousedown", () => {
+               isHeld = true;
+               increment();  
+
+               interval = setInterval(() => {
+                  if(isHeld) {
+                     increment();
+                  }
+               }, 125);
+
+               buttonDown.classList.remove("disabled");
             });
+            buttonUp.addEventListener("mouseup", clearHold);
+            buttonUp.addEventListener("mouseleave", clearHold);
+      
+            buttonDown.addEventListener("mousedown", () => {
+               isHeld = true;
+               decrement();  
+
+               interval = setInterval(() => {
+                  if(isHeld) {
+                     decrement();
+                  }
+               }, 125);
+
+               buttonUp.classList.remove("disabled");
+            });
+            buttonDown.addEventListener("mouseup", clearHold);
+            buttonDown.addEventListener("mouseleave", clearHold);
+            // --- End custom arrow
       
             // --- when user type directly in the <input> instead of clicking buttons
             inputNumberElement.addEventListener("input", () => {
@@ -752,35 +824,71 @@ if(sectionCart)
             }
             // --- End can only check for the very first time render
       
-            buttonUp.addEventListener("click", () => {
+            // --- Cutom arrow
+            let interval;
+            let isHeld = false;
+
+            function increment() {
                let currentValue = parseInt(inputNumberElement.value);
                currentValue = currentValue + 1;
                inputNumberElement.value = Math.min(maxValue, currentValue); // ensure the new value does not exceed max value
-               
-               buttonDown.classList.remove("disabled");
-      
+
                if(inputNumberElement.value >= maxValue)
                {
                   buttonUp.classList.add("disabled");
                }
 
                spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
-            });
-      
-            buttonDown.addEventListener("click", () => {
+            }
+
+            function decrement() {
                let currentValue = parseInt(inputNumberElement.value);
                currentValue = currentValue - 1;
                inputNumberElement.value = Math.max(minValue, currentValue); // ensure the new value does not go below min value
-      
-               buttonUp.classList.remove("disabled");
-      
+
                if(inputNumberElement.value <= minValue)
                {
                   buttonDown.classList.add("disabled");
                }
 
                spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+            }
+
+            function clearHold() {
+               isHeld = false;
+               clearInterval(interval);
+            }
+      
+            buttonUp.addEventListener("mousedown", () => {
+               isHeld = true;
+               increment();  
+
+               interval = setInterval(() => {
+                  if(isHeld) {
+                     increment();
+                  }
+               }, 125);
+
+               buttonDown.classList.remove("disabled");
             });
+            buttonUp.addEventListener("mouseup", clearHold);
+            buttonUp.addEventListener("mouseleave", clearHold);
+      
+            buttonDown.addEventListener("mousedown", () => {
+               isHeld = true;
+               decrement();  
+
+               interval = setInterval(() => {
+                  if(isHeld) {
+                     decrement();
+                  }
+               }, 125);
+
+               buttonUp.classList.remove("disabled");
+            });
+            buttonDown.addEventListener("mouseup", clearHold);
+            buttonDown.addEventListener("mouseleave", clearHold);
+            // --- End custom arrow
       
             // --- when user type directly in the <input> instead of clicking buttons
             inputNumberElement.addEventListener("input", () => {
