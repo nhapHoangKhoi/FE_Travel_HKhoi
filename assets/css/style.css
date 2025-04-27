@@ -853,6 +853,11 @@ img {
    flex: 1;
 }
 
+.banner-hero .banner-hero-area .inner-form .inner-calendar input[type="date"]::-webkit-calendar-picker-indicator 
+{
+   display: none;
+}
+
 .banner-hero .banner-hero-area .inner-form .inner-input-group
 {
    position: relative;

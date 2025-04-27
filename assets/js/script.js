@@ -125,6 +125,41 @@ if(countdownElement)
 // ----- End countdown-datetime
 
 
+// ----- DepartureDate emelement
+const departureDateElement = document.querySelector("input[name='departureDate']");
+
+if(departureDateElement)
+{
+   const inputIconRight = departureDateElement.closest(".inner-input-group").querySelector(".inner-down");
+
+   inputIconRight.addEventListener("click", () => {
+      departureDateElement.setAttribute("type", "date");
+      departureDateElement.showPicker();
+      departureDateElement.focus();
+      inputIconRight.style.display = "none";
+   });
+   
+   // When input loses focus
+   departureDateElement.addEventListener("blur", () => {
+      inputIconRight.style.display = "inline-block";
+
+      if (!departureDateElement.value) {
+         departureDateElement.setAttribute("type", "text");
+      }
+   });
+
+   // When user selects a date
+   departureDateElement.addEventListener("change", () => {
+      inputIconRight.style.display = "inline-block";
+      
+      if (!departureDateElement.value) {
+         departureDateElement.setAttribute("type", "text");
+      }
+   });
+}
+// ----- End departureDate emelement
+
+
 // ----- Quantity emelement
 const elementQuantityBannerHero = document.querySelector(".banner-hero .banner-hero-area .inner-form .inner-quantity");
 
