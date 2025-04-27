@@ -566,7 +566,9 @@ const boxTourDetail = document.querySelector(".box-tour-detail");
 
 if(boxTourDetail)
 {
+   // --- Custom buttonUp, buttonDown
    const inputNumberLabels = boxTourDetail.querySelectorAll("[input-number-element]");
+   let totalPrice = 0; 
 
    if(inputNumberLabels.length > 0)
    {
@@ -582,6 +584,12 @@ if(boxTourDetail)
 
             const spanQuantityElement = inputNumberLabel.querySelector(".inner-item-price span[quantity]");
             spanQuantityElement.textContent = initialValue;
+
+            const priceEach = parseInt(inputNumberElement.getAttribute("price"));
+            totalPrice = totalPrice + inputNumberElement.value*priceEach; // default value when reload page
+
+            const totalPriceElement = boxTourDetail.querySelector(".inner-total-price span[total-price]");
+            totalPriceElement.textContent = totalPrice.toLocaleString("vi-VN");
             
             // --- can only check for the very first time render
             if(initialValue <= minValue)
@@ -593,13 +601,14 @@ if(boxTourDetail)
                buttonUp.classList.add("disabled");
             }
             // --- End can only check for the very first time render
-      
+
             // --- Cutom arrow
             let interval;
             let isHeld = false;
 
             function increment() {
                let currentValue = parseInt(inputNumberElement.value);
+               const oldValue = currentValue; // used to compare before upadate totalPrice
                currentValue = currentValue + 1;
                inputNumberElement.value = Math.min(maxValue, currentValue); // ensure the new value does not exceed max value
 
@@ -608,11 +617,19 @@ if(boxTourDetail)
                   buttonUp.classList.add("disabled");
                }
 
-               spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+               if(inputNumberElement.value > oldValue) {
+                  spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+                  
+                  totalPrice = totalPrice + priceEach;
+                  totalPriceElement.textContent = totalPrice.toLocaleString("vi-VN");
+
+                  initialValue = inputNumberElement.value;
+               }
             }
 
             function decrement() {
                let currentValue = parseInt(inputNumberElement.value);
+               const oldValue = currentValue; // used to compare before upadate totalPrice
                currentValue = currentValue - 1;
                inputNumberElement.value = Math.max(minValue, currentValue); // ensure the new value does not go below min value
 
@@ -621,7 +638,14 @@ if(boxTourDetail)
                   buttonDown.classList.add("disabled");
                }
 
-               spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+               if(inputNumberElement.value < oldValue) {
+                  spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+      
+                  totalPrice = totalPrice - priceEach;
+                  totalPriceElement.textContent = totalPrice.toLocaleString("vi-VN");
+
+                  initialValue = inputNumberElement.value;
+               }
             }
 
             function clearHold() {
@@ -660,44 +684,51 @@ if(boxTourDetail)
             buttonDown.addEventListener("mouseleave", clearHold);
             // --- End custom arrow
       
-            // --- when user type directly in the <input> instead of clicking buttons
+            // --- when user type directly in the <input> instead of clicking buttons        
             inputNumberElement.addEventListener("input", () => {
                let newValue = parseInt(inputNumberElement.value);
-               spanQuantityElement.textContent = inputNumberElement.value;
-         
-               if(newValue <= minValue) {
-                  inputNumberElement.value = minValue; // automatically reset to min
-                  spanQuantityElement.textContent = inputNumberElement.value;
-                  buttonDown.classList.add("disabled");
+
+               if(isNaN(newValue)) {
+                  newValue = minValue;
                }
+            
+               if(newValue <= minValue) {
+                  newValue = minValue;
+                  buttonDown.classList.add("disabled");
+               } 
                else {
                   buttonDown.classList.remove("disabled");
                }
-      
+            
                if(newValue >= maxValue) {
-                  inputNumberElement.value = maxValue; // automatically reset to max
-                  spanQuantityElement.textContent = inputNumberElement.value;
+                  newValue = maxValue;
                   buttonUp.classList.add("disabled");
-               }
+               } 
                else {
                   buttonUp.classList.remove("disabled");
                }
-            });
-      
-            inputNumberElement.addEventListener("blur", () => {
-               let newValue = parseInt(inputNumberElement.value);
-      
-               if(!newValue) {
-                  inputNumberElement.value = minValue;
-                  spanQuantityElement.textContent = inputNumberElement.value;
-                  buttonDown.classList.add("disabled");
-                  return;
-               }
+            
+               // Update input and span
+               inputNumberElement.value = newValue;
+               spanQuantityElement.textContent = newValue;
+            
+               // --- IMPORTANT: recalculate totalPrice --- //
+               // step 1: subtract the old quantity * price
+               totalPrice -= initialValue * priceEach;
+               // step 2: add the new quantity * price
+               totalPrice += newValue * priceEach;
+               // step 3: update display
+               totalPriceElement.textContent = totalPrice.toLocaleString("vi-VN");
+            
+               // step 4: update initialValue for next time
+               initialValue = newValue;
+               // --- End IMPORTANT: recalculate totalPrice --- //
             });
             // --- End when user type directly in the <input> instead of clicking buttons
          }
       );
    }
+   // --- End custom buttonUp, buttonDown
 }
 // ----- End tour detail
 
