@@ -827,7 +827,11 @@ const sectionCart = document.querySelector(".section-cart");
 
 if(sectionCart)
 {
+   // --- Custom buttonUp, buttonDown
    const inputNumberLabels = sectionCart.querySelectorAll("[input-number-element]");
+   let subTotalPrice = 0;
+   let discount = 5070000; 
+   let totalPrice = 0; 
 
    if(inputNumberLabels.length > 0)
    {
@@ -843,6 +847,18 @@ if(sectionCart)
 
             const spanQuantityElement = inputNumberLabel.querySelector(".inner-item-price span[quantity]");
             spanQuantityElement.textContent = initialValue;
+
+            const priceEach = parseInt(inputNumberElement.getAttribute("price"));
+            
+            // default value when reload page
+            subTotalPrice = subTotalPrice + parseInt(inputNumberElement.value)*priceEach; 
+            const subTotalPriceElement = sectionCart.querySelector("[cart-sub-total]");
+            subTotalPriceElement.textContent = subTotalPrice.toLocaleString("vi-VN");
+
+            // default value when reload page
+            totalPrice = subTotalPrice - discount;
+            const totalPriceElement = sectionCart.querySelector("[cart-total]");
+            totalPriceElement.textContent = totalPrice.toLocaleString("vi-VN");
             
             // --- can only check for the very first time render
             if(initialValue <= minValue)
@@ -854,13 +870,14 @@ if(sectionCart)
                buttonUp.classList.add("disabled");
             }
             // --- End can only check for the very first time render
-      
+
             // --- Cutom arrow
             let interval;
             let isHeld = false;
 
             function increment() {
                let currentValue = parseInt(inputNumberElement.value);
+               const oldValue = currentValue; // used to compare before upadate subTotalPrice
                currentValue = currentValue + 1;
                inputNumberElement.value = Math.min(maxValue, currentValue); // ensure the new value does not exceed max value
 
@@ -869,11 +886,21 @@ if(sectionCart)
                   buttonUp.classList.add("disabled");
                }
 
-               spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+               if(inputNumberElement.value > oldValue) {
+                  spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+                  
+                  subTotalPrice = subTotalPrice + priceEach;
+                  subTotalPriceElement.textContent = subTotalPrice.toLocaleString("vi-VN");
+                  totalPrice = subTotalPrice - discount;
+                  totalPriceElement.textContent = totalPrice.toLocaleString("vi-VN");
+
+                  initialValue = inputNumberElement.value;
+               }
             }
 
             function decrement() {
                let currentValue = parseInt(inputNumberElement.value);
+               const oldValue = currentValue; // used to compare before upadate subTotalPrice
                currentValue = currentValue - 1;
                inputNumberElement.value = Math.max(minValue, currentValue); // ensure the new value does not go below min value
 
@@ -882,7 +909,16 @@ if(sectionCart)
                   buttonDown.classList.add("disabled");
                }
 
-               spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+               if(inputNumberElement.value < oldValue) {
+                  spanQuantityElement.textContent = inputNumberElement.value; // update new number for <span>
+      
+                  subTotalPrice = subTotalPrice - priceEach;
+                  subTotalPriceElement.textContent = subTotalPrice.toLocaleString("vi-VN");
+                  totalPrice = subTotalPrice - discount;
+                  totalPriceElement.textContent = totalPrice.toLocaleString("vi-VN");
+
+                  initialValue = inputNumberElement.value;
+               }
             }
 
             function clearHold() {
@@ -921,44 +957,54 @@ if(sectionCart)
             buttonDown.addEventListener("mouseleave", clearHold);
             // --- End custom arrow
       
-            // --- when user type directly in the <input> instead of clicking buttons
+            // --- when user type directly in the <input> instead of clicking buttons        
             inputNumberElement.addEventListener("input", () => {
                let newValue = parseInt(inputNumberElement.value);
-               spanQuantityElement.textContent = inputNumberElement.value;
-         
-               if(newValue <= minValue) {
-                  inputNumberElement.value = minValue; // automatically reset to min
-                  spanQuantityElement.textContent = inputNumberElement.value;
-                  buttonDown.classList.add("disabled");
+
+               if(isNaN(newValue)) {
+                  newValue = minValue;
                }
+            
+               if(newValue <= minValue) {
+                  newValue = minValue;
+                  buttonDown.classList.add("disabled");
+               } 
                else {
                   buttonDown.classList.remove("disabled");
                }
-      
+            
                if(newValue >= maxValue) {
-                  inputNumberElement.value = maxValue; // automatically reset to max
-                  spanQuantityElement.textContent = inputNumberElement.value;
+                  newValue = maxValue;
                   buttonUp.classList.add("disabled");
-               }
+               } 
                else {
                   buttonUp.classList.remove("disabled");
                }
-            });
-      
-            inputNumberElement.addEventListener("blur", () => {
-               let newValue = parseInt(inputNumberElement.value);
-      
-               if(!newValue) {
-                  inputNumberElement.value = minValue;
-                  spanQuantityElement.textContent = inputNumberElement.value;
-                  buttonDown.classList.add("disabled");
-                  return;
-               }
+            
+               // Update input and span
+               inputNumberElement.value = newValue;
+               spanQuantityElement.textContent = newValue;
+            
+               // --- IMPORTANT: recalculate subTotalPrice --- //
+               // step 1: subtract the old quantity * price
+               subTotalPrice -= initialValue * priceEach;
+               // step 2: add the new quantity * price
+               subTotalPrice += newValue * priceEach;
+               // step 3: update display cartSubTotal
+               subTotalPriceElement.textContent = subTotalPrice.toLocaleString("vi-VN");
+               // step 4: update display cartTotal
+               totalPrice = subTotalPrice - discount;
+               totalPriceElement.textContent = totalPrice.toLocaleString("vi-VN");
+            
+               // step 5: update initialValue for next time
+               initialValue = newValue;
+               // --- End IMPORTANT: recalculate subTotalPrice --- //
             });
             // --- End when user type directly in the <input> instead of clicking buttons
          }
       );
    }
+   // --- End custom buttonUp, buttonDown
 }
 // ----- End tour list in cart
 
