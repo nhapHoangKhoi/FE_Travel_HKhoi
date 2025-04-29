@@ -858,6 +858,14 @@ img {
    display: none;
 }
 
+.banner-hero .banner-hero-area .inner-form input::-webkit-datetime-edit-day-field:focus,
+.banner-hero .banner-hero-area .inner-form input::-webkit-datetime-edit-month-field:focus,
+.banner-hero .banner-hero-area .inner-form input::-webkit-datetime-edit-year-field:focus 
+{
+   background-color: white;
+   color: #000;
+}
+
 .banner-hero .banner-hero-area .inner-form .inner-input-group
 {
    position: relative;
@@ -891,14 +899,6 @@ img {
    font-size: 14px;
    font-weight: 400;
    color: #A6A6A6;
-}
-
-.banner-hero .banner-hero-area .inner-form input::-webkit-datetime-edit-day-field:focus,
-.banner-hero .banner-hero-area .inner-form input::-webkit-datetime-edit-month-field:focus,
-.banner-hero .banner-hero-area .inner-form input::-webkit-datetime-edit-year-field:focus 
-{
-   background-color: white;
-   color: #000;
 }
 
 .banner-hero .banner-hero-area .inner-form .inner-input-group .inner-down
