@@ -126,7 +126,7 @@ if(countdownElement)
 
 
 // ----- DepartureDate emelement
-const departureDateElement = document.querySelector("input[name='departureDate']");
+const departureDateElement = document.querySelector(".inner-box.inner-calendar input[name='departureDate']");
 
 if(departureDateElement)
 {
